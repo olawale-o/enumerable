@@ -12,4 +12,12 @@ module MyEnumerable
     each { |value| return true if yield value } if block_given?
     false
   end
+  
+  def filter
+    items = []
+    return items unless block_given?
+    
+    each { |value| items << value if yield value } if block_given?
+    items
+  end
 end
