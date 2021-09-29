@@ -1,4 +1,7 @@
+require_relative 'my_enumerable'
+
 class MyList
+  include MyEnumerable
   attr_accessor :list
 
   def initialize(*list)
@@ -7,7 +10,7 @@ class MyList
 
   def each
     i = 0
-    until i > @list.length
+    while i < @list.length
       yield @list[i]
       i += 1
     end
